@@ -141,16 +141,55 @@ body.light-mode {
   text-decoration: none;
 }
 
+/* Round JAO logo with a slowly turning gradient ring */
 .md-logo-mark {
+  position: relative;
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #ff2d6a, #c71585);
-  color: #fff;
+  width: 40px;
+  height: 40px;
+  padding: 2px;
+  border-radius: 50%;
+  isolation: isolate;
+  box-shadow: 0 8px 22px -8px rgba(255, 45, 106, 0.9);
+}
+
+.md-logo-mark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #ff2d6a, #ff9a3c, #c71585, #6d28d9, #ff2d6a);
+  animation: md-spin 6s linear infinite;
+}
+
+.md-logo-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--md-bg);
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.5s var(--md-ease);
+}
+
+.md-logo:hover .md-logo-mark img { transform: scale(1.08) rotate(-6deg); }
+
+@keyframes md-spin { to { transform: rotate(360deg); } }
+
+.md-logo-text {
+  font-size: 1.15rem;
   font-weight: 800;
-  box-shadow: 0 8px 20px -8px rgba(255, 45, 106, 0.8);
+  letter-spacing: 0.22em;
+  background: linear-gradient(120deg, var(--md-text) 30%, #ff9a3c 65%, #ff2d6a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-logo-mark::before { animation: none; }
 }
 
 .md-links {

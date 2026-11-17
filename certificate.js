@@ -160,7 +160,7 @@ function renderCertificate(cert) {
   const content = document.getElementById('certContent');
   const notFound = document.getElementById('certNotFound');
 
-  document.title = cert.title + ' | Alexs';
+  document.title = cert.title + ' | JAO';
 
   const badgeClass = (cert.type === 'Awardee' || cert.type === 'Recognition') ? 'cert-badge achievement' : 'cert-badge';
 

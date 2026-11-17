@@ -2536,3 +2536,19 @@ p {
   -webkit-hyphens: auto;
   hyphens: auto;
 }
+
+/* JAO logo on project / certificate pages */
+.logo:has(.logo-img) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.18em;
+}
+
+.logo-img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 2px #ff2d6a, 0 6px 16px -6px rgba(255, 45, 106, 0.8);
+}

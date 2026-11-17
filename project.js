@@ -37,7 +37,7 @@ function renderProject(project) {
   const year = rememberProjectYear(project);
   setBackLinks(year);
 
-  document.title = project.title + ' | Alexs';
+  document.title = project.title + ' | JAO';
 
   let tagsHtml = '';
   project.tags.forEach(function (tag) {
