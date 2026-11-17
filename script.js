@@ -135,7 +135,7 @@ if (themeToggle) {
 // Contact form handling
 // Messages are delivered by Web3Forms (https://web3forms.com) to your email.
 // Paste your access key below. It is safe to keep in public code: it can only send mail to you.
-const WEB3FORMS_ACCESS_KEY = 'PASTE-YOUR-ACCESS-KEY-HERE';
+const WEB3FORMS_ACCESS_KEY = '3c408a26-0460-4dbd-8686-591bc87ad122';
 
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
