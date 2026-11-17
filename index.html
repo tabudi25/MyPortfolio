@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="projects-section.css">
+  <link rel="stylesheet" href="certificates-section.css">
+  <link rel="stylesheet" href="modern.css">
+  <script>document.documentElement.classList.add("md-js");</script>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="md-nav" aria-label="Main">
+    <div class="md-nav-inner">
+      <a href="#home" class="md-logo">
+        <span class="md-logo-mark" aria-hidden="true">A</span>
+        <span class="md-logo-text">Alexs</span>
+      </a>
+      <ul class="md-links" id="mdLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills"> Technical Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="md-nav-actions">
+        <button class="md-icon-btn md-theme" id="themeToggle" type="button" aria-label="Toggle light mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" aria-hidden="true">
+            <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5z" />
+          </svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+          </svg>
+        </button>
+        <a href="#contact" class="md-btn md-btn-primary md-nav-cta">Let's talk</a>
+        <button class="md-icon-btn md-menu" id="menuBtn" type="button" aria-label="Open menu" aria-controls="mdLinks"
+          aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="pj md-hero">
+    <div class="md-hero-bg" aria-hidden="true">
+      <span class="md-orb md-orb-1"></span>
+      <span class="md-orb md-orb-2"></span>
+      <span class="md-orb md-orb-3"></span>
+    </div>
+
+    <div class="container md-hero-layout">
+      <div class="md-hero-content">
+        <span class="md-pill md-reveal"><span class="md-pill-dot" aria-hidden="true"></span>Hi there 👋</span>
+        <h1 class="md-hero-title md-reveal">Hello, I'm <span class="md-grad">Alexes</span></h1>
+        <p class="md-typing md-reveal"><span id="typingText"></span><span class="md-caret" aria-hidden="true"></span>
+        </p>
+        <p class="md-hero-desc md-reveal">
+          I build modern, responsive, and functional web applications.
+          Turning ideas into clean code and great user experiences.
+        </p>
+        <div class="md-hero-actions md-reveal">
+          <a href="#projects" class="md-btn md-btn-primary">
+            View My Work
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              aria-hidden="true">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </a>
+          <a href="#contact" class="md-btn md-btn-ghost">
+            Contact Me
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="M3 7l9 6 9-6" />
+            </svg>
+          </a>
+        </div>
+
+        <dl class="md-hero-stats md-reveal">
+          <div>
+            <dt>Projects Completed</dt>
+            <dd>10+</dd>
+          </div>
+          <div>
+            <dt>Certificates</dt>
+            <dd>10+</dd>
+          </div>
+          <div>
+            <dt>Years Learning</dt>
+            <dd>3+</dd>
+          </div>
+          <div>
+            <dt>Motivation</dt>
+            <dd>100%</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="md-hero-visual md-reveal" aria-hidden="true">
+        <div class="md-code">
+          <div class="md-code-bar">
+            <span></span><span></span><span></span>
+            <em>alexes.js</em>
+          </div>
+          <pre><span class="c">// Better Code, Bigger Dreams</span>
+<span class="k">const</span> alexes = {
+  <span class="p">role</span>: <span class="s">'Web Developer'</span>,
+  <span class="p">school</span>: <span class="s">'BSIT · SPC'</span>,
+  <span class="p">based</span>: <span class="s">'Cagayan de Oro'</span>,
+  <span class="p">stack</span>: [<span class="s">'HTML'</span>, <span class="s">'CSS'</span>, <span class="s">'JS'</span>,
+          <span class="s">'PHP'</span>, <span class="s">'Laravel'</span>],
+  <span class="p">build</span>() {
+    <span class="k">return</span> <span class="s">'clean, responsive apps'</span>;
+  }
+};</pre>
+        </div>
+        <div class="md-float md-float-1">
+          <span class="md-float-icon">&lt;/&gt;</span>
+          <div><strong>Better Code,</strong><span>Bigger Dreams</span></div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="md-scroll">
+      <span class="md-scroll-mouse" aria-hidden="true"></span>
+      Scroll Down
+    </a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="pj md-about">
+    <div class="pj-bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="md-about-grid">
+        <div class="md-about-visual md-reveal">
+          <div class="md-photo">
+            <img src="port.png" alt="Alexes">
+          </div>
+          <span class="md-hello">Hello!</span>
+          <div class="md-status">
+            <span class="md-status-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2c1.5 3.5 2 5.5 2 8a4 4 0 1 1-8 0c0-1.5.5-3 1.2-4.5C5.5 8 4 10.2 4 13a8 8 0 0 0 16 0c0-4.5-3.5-7.5-8-11z" />
+              </svg>
+            </span>
+            <div>
+              <strong>BSIT Student</strong>
+              <span>Tech Enthusiast</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="md-about-content md-reveal">
+          <header class="pj-head md-head">
+            <span class="pj-eyebrow">About Me</span>
+            <h2>Hi, I'm <span class="md-grad">Alexes</span></h2>
+            <p class="pj-lede">Passionate Developer | Lifelong Learner | Problem Solver</p>
+          </header>
+          <p class="md-bio">
+            I'm a passionate developer who loves building clean and user-friendly websites.
+            I enjoy turning ideas into real projects using HTML, CSS, JavaScript, PHP, React JS, Python, Java, C++,
+            Tailwind CSS, and Photoshop.
+            I also value soft skills like problem solving, teamwork, communication, adaptability and a strong
+            willingness to learn.
+          </p>
+
+          <ul class="md-highlights">
+            <li>
+              <span class="md-hl-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c0 1 2 3 6 3s6-2 6-3v-5" />
+                </svg>
+              </span>
+              <strong>Education</strong>
+              <span>BSIT Student (Southern de Oro Philippines College)</span>
+            </li>
+            <li>
+              <span class="md-hl-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+              </span>
+              <strong>Location</strong>
+              <span>Cagayan de Oro City, Philippines</span>
+            </li>
+            <li>
+              <span class="md-hl-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              </span>
+              <strong>Focus</strong>
+              <span>Web Development &amp; UI/UX</span>
+            </li>
+          </ul>
+
+          <a href="#contact" class="md-btn md-btn-primary">
+            Let's Connect
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="md-journey md-reveal">
+        <header class="pj-head md-head">
+          <span class="pj-eyebrow">Timeline</span>
+          <h2>My College Journey</h2>
+          <p class="pj-lede">Click each year to explore my experience</p>
+        </header>
+
+        <div class="md-steps">
+          <div class="md-track" aria-hidden="true">
+            <div class="md-track-fill" id="timelineProgress"></div>
+          </div>
+          <button class="md-step active" type="button" data-year="1">
+            <span class="md-step-dot">1</span>
+            <span class="md-step-label">1st Year</span>
+          </button>
+          <button class="md-step" type="button" data-year="2">
+            <span class="md-step-dot">2</span>
+            <span class="md-step-label">2nd Year</span>
+          </button>
+          <button class="md-step" type="button" data-year="3">
+            <span class="md-step-dot">3</span>
+            <span class="md-step-label">3rd Year</span>
+          </button>
+          <button class="md-step" type="button" data-year="4">
+            <span class="md-step-dot">4</span>
+            <span class="md-step-label">4th Year</span>
+          </button>
+        </div>
+
+        <div class="md-journey-card fade-in" id="timelineDescription">
+          <span class="md-badge">Year 2024-2025</span>
+          <h3>First Year</h3>
+          <p>
+            When I started college, everything was new to me. I was nervous because I did not know what to expect. I met
+            new classmates, new teachers, and learned many new subjects. We were taught Java and Python, which
+            introduced me to programming. At first, it was hard to adjust, but I did my best to attend classes, finish
+            my assignments, and learn from my mistakes. My first year helped me become more responsible and confident.
+          </p>
+        </div>
+
+        <div class="md-locked" id="lockedMessage">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <rect x="5" y="11" width="14" height="10" rx="2" />
+            <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+          </svg>
+          <p>4th Year is still in progress. Check back soon!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="pj md-skills">
+    <div class="pj-bg" aria-hidden="true"></div>
+    <div class="container">
+      <header class="pj-head md-head md-reveal">
+        <span class="pj-eyebrow">Toolbox</span>
+        <h2>Technical Skills</h2>
+      </header>
+      <ul class="md-skills-grid md-reveal">
+        <li class="md-skill"><span class="md-skill-logo"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt=""
+              loading="lazy"></span>HTML</li>
+        <li class="md-skill"><span class="md-skill-logo"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt=""
+              loading="lazy"></span>CSS</li>
+        <li class="md-skill"><span class="md-skill-logo"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt=""
+              loading="lazy"></span>JavaScript</li>
+        <li class="md-skill"><span class="md-skill-logo"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt=""
+              loading="lazy"></span>PHP</li>
+        <li class="md-skill"><span class="md-skill-logo"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt=""
+              loading="lazy"></span>Tailwind</li>
+        <li class="md-skill"><span class="md-skill-logo"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" alt=""
+              loading="lazy"></span>Photoshop</li>
+        <li class="md-skill"><span class="md-skill-logo"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt=""
+              loading="lazy"></span>Java</li>
+        <li class="md-skill"><span class="md-skill-logo"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt=""
+              loading="lazy"></span>Python</li>
+        <li class="md-skill"><span class="md-skill-logo"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt=""
+              loading="lazy"></span>React JS</li>
+        <li class="md-skill"><span class="md-skill-logo"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt=""
+              loading="lazy"></span>C++</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects Section (cards are rendered by projects-section.js from projects-data.js) -->
+  <section id="projects" class="projects pj">
+    <div class="pj-bg" aria-hidden="true"></div>
+    <div class="container">
+
+      <header class="pj-head">
+        <span class="pj-eyebrow">Selected work</span>
+        <h2>Projects</h2>
+        <p class="pj-lede">Web platforms, desktop apps, games, films, and design work from four years of BSIT. Some of
+          them run right here in the browser.</p>
+      </header>
+
+      <div class="pj-toolbar">
+        <div class="pj-years" role="tablist" aria-label="Filter by year" id="pjYears"></div>
+      </div>
+
+      <div class="pj-grid" id="pjGrid"></div>
+
+      <div class="pj-empty" id="pjEmpty" hidden>
+        <p class="pj-empty-title">No projects match those filters.</p>
+        <button type="button" class="pj-btn pj-btn-ghost" id="pjReset">Clear filters</button>
+      </div>
+    </div>
+
+    <!-- Quick view -->
+    <dialog class="pj-modal" id="pjModal" aria-labelledby="pjModalTitle">
+      <div class="pj-modal-inner">
+        <div class="pj-stage-wrap">
+          <div class="pj-stage-tabs" id="pjStageTabs" hidden>
+            <button type="button" class="active" data-stage="gallery">Gallery</button>
+            <button type="button" data-stage="demo">
+              <span class="pj-live-dot" aria-hidden="true"></span> Try it live
+            </button>
+          </div>
+          <div class="pj-stage" id="pjStage"></div>
+          <div class="pj-thumbs" id="pjThumbs"></div>
+        </div>
+
+        <div class="pj-modal-info">
+          <div class="pj-modal-meta" id="pjModalMeta"></div>
+          <h3 id="pjModalTitle"></h3>
+          <p class="pj-modal-sub" id="pjModalSub"></p>
+          <p class="pj-modal-desc" id="pjModalDesc"></p>
+          <div class="pj-modal-tags" id="pjModalTags"></div>
+          <div class="pj-modal-actions" id="pjModalActions"></div>
+          <div class="pj-modal-nav">
+            <button type="button" class="pj-btn pj-btn-ghost" id="pjPrev" aria-label="Previous project">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+              <span>Prev</span>
+            </button>
+            <span class="pj-modal-count" id="pjModalCount"></span>
+            <button type="button" class="pj-btn pj-btn-ghost" id="pjNext" aria-label="Next project">
+              <span>Next</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" class="pj-close" id="pjClose" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </dialog>
+  </section>
+
+  <!-- Certificates Section (tabs handled by certificates-section.js) -->
+  <section id="certificates" class="pj ct">
+    <div class="pj-bg" aria-hidden="true"></div>
+    <div class="container">
+
+      <header class="pj-head">
+        <span class="pj-eyebrow">Credentials</span>
+        <h2>Certificates &amp; Achievements</h2>
+        <p class="pj-lede">Awards, recognitions, seminars, and courses from my BSIT journey.</p>
+      </header>
+
+      <div class="ct-toolbar">
+        <div class="pj-years" role="tablist" aria-label="Filter certificates" id="ctTabs">
+          <button type="button" role="tab" class="pj-year" data-cat="all"><span>All</span><span
+              class="pj-count"></span></button>
+          <button type="button" role="tab" class="pj-year" data-cat="awardee"><span>Awardee</span><span
+              class="pj-count"></span></button>
+          <button type="button" role="tab" class="pj-year" data-cat="recognition"><span>Recognition</span><span
+              class="pj-count"></span></button>
+          <button type="button" role="tab" class="pj-year" data-cat="attendance"><span>Attendance</span><span
+              class="pj-count"></span></button>
+          <button type="button" role="tab" class="pj-year" data-cat="course"><span>Courses</span><span
+              class="pj-count"></span></button>
+          <span class="pj-year-pill" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <div class="ct-grid" id="ctGrid" role="tabpanel" aria-labelledby="ctTabs">
+        <a class="ct-card" href="certificate.html?id=best-sound-design" data-cat="awardee">
+          <div class="ct-thumb">
+            <img src="images/certificates/best-sound-design.jpg" alt="Best Sound Design certificate" loading="lazy"
+              decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-awardee">Awardee</span>
+            <h3 class="ct-title">Best Sound Design</h3>
+            <p class="ct-org">SineMulat Film Fest 2026</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>SPC New AVR, Cagayan de Oro City</span></p>
+            <div class="ct-foot">
+              <time>May 2026</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=class-top-awardee" data-cat="awardee">
+          <div class="ct-thumb">
+            <img src="images/certificates/class-top-awardee.jpg" alt="Class Top Awardee certificate" loading="lazy"
+              decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-awardee">Awardee</span>
+            <h3 class="ct-title">Class Top Awardee</h3>
+            <p class="ct-org">Southern Philippines College</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>SPC Covered Court, Cagayan de Oro City</span></p>
+            <div class="ct-foot">
+              <time>May 2024</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=egame-ml-2nd" data-cat="awardee">
+          <div class="ct-thumb">
+            <img src="images/certificates/egame-ml-2nd-placer.jpg" alt="2nd Placer — ML Tournament certificate"
+              loading="lazy" decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-awardee">Awardee</span>
+            <h3 class="ct-title">2nd Placer — ML Tournament</h3>
+            <p class="ct-org">I.T Days 2024</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>SPC Covered Court, Cagayan de Oro City</span></p>
+            <div class="ct-foot">
+              <time>Mar 2024</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=it-project-expo" data-cat="recognition">
+          <div class="ct-thumb">
+            <img src="images/certificates/it-project-expo.jpg" alt="IT Project Expo certificate" loading="lazy"
+              decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-recognition">Recognition</span>
+            <h3 class="ct-title">IT Project Expo</h3>
+            <p class="ct-org">Python Games: Memory Plus Gold</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>SPC Covered Court, Cagayan de Oro City</span></p>
+            <div class="ct-foot">
+              <time>Feb 2026</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=scite-representative" data-cat="recognition">
+          <div class="ct-thumb">
+            <img src="images/certificates/scite-2nd-year-representative.jpg" alt="SCITE Representative certificate"
+              loading="lazy" decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-recognition">Recognition</span>
+            <h3 class="ct-title">SCITE Representative</h3>
+            <p class="ct-org">2nd Year Block A · AY 2025–2026</p>
+            <p class="ct-venue" aria-hidden="true"></p>
+            <div class="ct-foot">
+              <time>Jul 2025</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=code-your-finances" data-cat="attendance">
+          <div class="ct-thumb">
+            <img src="images/certificates/code-your-finances.jpg" alt="Code Your Finances certificate" loading="lazy"
+              decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-attendance">Attendance</span>
+            <h3 class="ct-title">Code Your Finances</h3>
+            <p class="ct-org">IT Assembly Seminar</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>Demiren Hotel, Cagayan de Oro City</span></p>
+            <div class="ct-foot">
+              <time>Feb 2026</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=fit-to-code" data-cat="attendance">
+          <div class="ct-thumb">
+            <img src="images/certificates/fit-to-code.jpg" alt="Fit to Code certificate" loading="lazy"
+              decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-attendance">Attendance</span>
+            <h3 class="ct-title">Fit to Code</h3>
+            <p class="ct-org">IT Assembly Seminar</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>Demiren Hotel, Cagayan de Oro City</span></p>
+            <div class="ct-foot">
+              <time>Feb 2026</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=extended-reality" data-cat="attendance">
+          <div class="ct-thumb">
+            <img src="images/certificates/introduction-to-extended-reality.png"
+              alt="Introduction to Extended Reality certificate" loading="lazy" decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-attendance">Attendance</span>
+            <h3 class="ct-title">Introduction to Extended Reality</h3>
+            <p class="ct-org">DICT Region X</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>Online via Zoom</span></p>
+            <div class="ct-foot">
+              <time>Nov 2025</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=vibe-coding" data-cat="attendance">
+          <div class="ct-thumb">
+            <img src="images/certificates/vibe-coding-basics.png" alt="Basics of VIBE Coding certificate" loading="lazy"
+              decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-attendance">Attendance</span>
+            <h3 class="ct-title">Basics of VIBE Coding</h3>
+            <p class="ct-org">DICT Region X</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>Online via Zoom</span></p>
+            <div class="ct-foot">
+              <time>Nov 2025</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=data-privacy-awareness" data-cat="attendance">
+          <div class="ct-thumb">
+            <img src="images/certificates/data-privacy-awareness.png" alt="Data Privacy Awareness certificate"
+              loading="lazy" decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-attendance">Attendance</span>
+            <h3 class="ct-title">Data Privacy Awareness</h3>
+            <p class="ct-org">DICT Region X</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>Online via Zoom</span></p>
+            <div class="ct-foot">
+              <time>Nov 2025</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=digital-netiquette" data-cat="attendance">
+          <div class="ct-thumb">
+            <img src="images/certificates/digital-communication-netiquette.jpg"
+              alt="Digital Communication Netiquette certificate" loading="lazy" decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-attendance">Attendance</span>
+            <h3 class="ct-title">Digital Communication Netiquette</h3>
+            <p class="ct-org">CCS Seminar</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>Demiren Hotel, Cagayan de Oro City</span></p>
+            <div class="ct-foot">
+              <time>Oct 2023</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=cybersecurity-online" data-cat="attendance">
+          <div class="ct-thumb">
+            <img src="images/certificates/cybersecurity-online-world.jpg" alt="Cybersecurity Online World certificate"
+              loading="lazy" decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-attendance">Attendance</span>
+            <h3 class="ct-title">Cybersecurity Online World</h3>
+            <p class="ct-org">CCS Seminar</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>Demiren Hotel, Cagayan de Oro City</span></p>
+            <div class="ct-foot">
+              <time>Oct 2023</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=cisco-cybersecurity" data-cat="course">
+          <div class="ct-thumb">
+            <img src="images/certificates/cisco-intro-cybersecurity.png" alt="Introduction to Cybersecurity certificate"
+              loading="lazy" decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-course">Course</span>
+            <h3 class="ct-title">Introduction to Cybersecurity</h3>
+            <p class="ct-org">Cisco Networking Academy</p>
+            <p class="ct-venue" aria-hidden="true"></p>
+            <div class="ct-foot">
+              <time>Feb 2026</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=responsive-web-design" data-cat="course">
+          <div class="ct-thumb">
+            <img src="images/certificates/freecodecamp-responsive-web-design.png"
+              alt="Responsive Web Design certificate" loading="lazy" decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-course">Course</span>
+            <h3 class="ct-title">Responsive Web Design</h3>
+            <p class="ct-org">freeCodeCamp</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>Online · freeCodeCamp.org</span></p>
+            <div class="ct-foot">
+              <time>Jun 2025</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=html-css-training" data-cat="course">
+          <div class="ct-thumb">
+            <img src="images/certificates/html-css-training.png" alt="HTML &amp; CSS Training certificate"
+              loading="lazy" decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-course">Course</span>
+            <h3 class="ct-title">HTML &amp; CSS Training</h3>
+            <p class="ct-org">Learn @FLIGNO / Erudithe</p>
+            <p class="ct-venue" aria-hidden="true"></p>
+            <div class="ct-foot">
+              <time>May 2024</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="contact-bg" aria-hidden="true"></div>
+    <div class="container contact-layout">
+      <div class="contact-info">
+        <p class="contact-eyebrow">Get in touch</p>
+        <h2 class="contact-title">Contact <span>Me</span></h2>
+        <p class="contact-lead">
+          Have a project in mind or just want to say hello? Feel free to reach out — I'd love to hear from you.
+        </p>
+
+        <ul class="contact-details">
+          <li>
+            <span class="contact-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="M3 7l9 6 9-6" />
+              </svg>
+            </span>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:oraoalexes@gmail.com">oraoalexes@gmail.com</a>
+            </div>
+          </li>
+          <li>
+            <span class="contact-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z" />
+              </svg>
+            </span>
+            <div>
+              <strong>Phone</strong>
+              <a href="tel:+639168675583">+63 916 867 5583</a>
+            </div>
+          </li>
+          <li>
+            <span class="contact-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+            </span>
+            <div>
+              <strong>Location</strong>
+              <span>Cagayan de Oro City, Philippines</span>
+            </div>
+          </li>
+        </ul>
+
+        <!-- CV: put the PDF at files/cv.pdf -->
+        <div class="cv-card">
+          <span class="cv-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+              <path d="M14 3v6h6M8 13h8M8 17h5" />
+            </svg>
+          </span>
+          <div class="cv-text">
+            <strong>My CV</strong>
+            <span>Resume · PDF</span>
+          </div>
+          <div class="cv-actions">
+            <a href="files/cv.pdf" class="cv-btn cv-btn-primary" id="cvView" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              View CV
+            </a>
+            <a href="files/cv.pdf" class="cv-btn" download="Jun-Alexes-Orao-CV.pdf">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14" />
+              </svg>
+              Download
+            </a>
+          </div>
+        </div>
+
+        <dialog class="cv-modal" id="cvModal" aria-label="CV preview">
+          <div class="cv-modal-bar">
+            <strong>My CV</strong>
+            <div class="cv-modal-actions">
+              <a href="files/cv.pdf" class="cv-btn cv-btn-primary" download="Jun-Alexes-Orao-CV.pdf">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14" />
+                </svg>
+                Download
+              </a>
+              <a href="files/cv.pdf" class="cv-btn" target="_blank" rel="noopener">Open in new tab</a>
+              <button type="button" class="cv-close" id="cvClose" aria-label="Close">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <iframe class="cv-frame" id="cvFrame" title="CV preview"></iframe>
+        </dialog>
+
+        <div class="contact-social">
+          <p class="social-title">Follow Me</p>
+          <div class="social-icons">
+            <a href="https://github.com/tabudi25" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <img src="https://cdn.simpleicons.org/github/1a1a2e" alt="">
+            </a>
+            <a href="https://facebook.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="">
+            </a>
+            <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram">
+              <img src="https://cdn.simpleicons.org/instagram/E4405F" alt="">
+            </a>
+            <a href="https://tiktok.com/@yourusername" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <img src="https://cdn.simpleicons.org/tiktok/000000" alt="">
+            </a>
+            <a href="https://www.linkedin.com/in/jun-alexes-orao-72232430a" target="_blank" rel="noopener noreferrer"
+              aria-label="LinkedIn">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="">
+            </a>
+          </div>
+        </div>
+
+        <blockquote class="contact-quote">
+          <p>“Let's build something great together.”</p>
+          <cite>— Alexes</cite>
+        </blockquote>
+      </div>
+
+      <div class="contact-panel">
+        <div class="contact-panel-header">
+          <span class="contact-panel-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13" />
+              <path d="M22 2L15 22l-4-9-9-4 20-7z" />
+            </svg>
+          </span>
+          <div>
+            <h3>Send a Message</h3>
+            <p>Fill out the form and I'll get back to you soon.</p>
+          </div>
+        </div>
+
+        <form id="contactForm">
+          <div class="form-row">
+            <label class="form-field">
+              <span class="field-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21a8 8 0 0 0-16 0" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </span>
+              <input type="text" id="name" name="name" placeholder="Your Name" required autocomplete="name">
+            </label>
+            <label class="form-field">
+              <span class="field-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="M3 7l9 6 9-6" />
+                </svg>
+              </span>
+              <input type="email" id="email" name="email" placeholder="Your Email" required autocomplete="email">
+            </label>
+          </div>
+
+          <label class="form-field">
+            <span class="field-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" />
+              </svg>
+            </span>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+          </label>
+
+          <label class="form-field form-field-textarea">
+            <span class="field-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 20h9" />
+                <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+              </svg>
+            </span>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+          </label>
+
+          <button type="submit" class="contact-submit">
+            <span>Send Message</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M22 2L11 13" />
+              <path d="M22 2L15 22l-4-9-9-4 20-7z" />
+            </svg>
+          </button>
+        </form>
+        <p id="formMessage" class="form-message"></p>
+
+        <div class="contact-map">
+          <iframe title="Cagayan de Oro City map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=124.60%2C8.43%2C124.70%2C8.52&amp;layer=mapnik&amp;marker=8.4542%2C124.6319"></iframe>
+          <div class="map-pin-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z" />
+            </svg>
+            Cagayan de Oro City, Philippines
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="md-footer">
+    <div class="container md-footer-inner">
+      <a href="#home" class="md-logo"><span class="md-logo-mark" aria-hidden="true">A</span><span
+          class="md-logo-text">Alexs</span></a>
+      <p>&copy; 2026 Jun Alexes. All rights reserved.</p>
+      <a href="#home" class="md-top">Back to top
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <path d="M12 19V5m-6 6 6-6 6 6" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="projects-data.js"></script>
+  <script src="projects-section.js"></script>
+  <script src="certificates-section.js"></script>
+</body>
+
+</html>

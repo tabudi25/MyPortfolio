@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flip Memory Plus Gold Game</title>
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Home -->
+    <section id="screen-home" class="screen active">
+      <div class="screen-bg" style="background-image: url('assets/homep1.PNG')"></div>
+      <div class="screen-content home-content">
+        <h1 class="game-title">Flip Memory Plus Gold Game</h1>
+        <p class="game-subtitle">Multi-Theme Anime Memory Challenge</p>
+        <button class="btn-primary" data-action="go-themes">START</button>
+        <button class="btn-secondary" data-action="go-howto">HOW TO PLAY</button>
+        <button class="btn-secondary" data-action="show-leaderboard">LEADERBOARDS</button>
+      </div>
+
+      <div id="overlay-leaderboard" class="overlay hidden">
+        <div class="leaderboard-box">
+          <h3>Leaderboards</h3>
+          <p id="leaderboard-top1" class="leaderboard-top1">Top 1: No records yet</p>
+          <div class="leaderboard-table-wrap">
+            <table class="leaderboard-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Score</th>
+                  <th>Time Left</th>
+                  <th>Flips</th>
+                  <th>Theme</th>
+                  <th>Result</th>
+                </tr>
+              </thead>
+              <tbody id="leaderboard-body"></tbody>
+            </table>
+          </div>
+          <div class="leaderboard-actions">
+            <button class="btn-primary" data-action="refresh-leaderboard">Refresh</button>
+            <button class="btn-secondary" data-action="close-leaderboard">Close</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Themes -->
+    <section id="screen-themes" class="screen">
+      <div class="screen-bg" style="background-image: url('assets/themes.PNG')"></div>
+      <div class="screen-content themes-content">
+        <h2>Choose a Theme</h2>
+        <div class="theme-grid">
+          <button class="theme-card" data-theme="naruto">
+            <img src="assets/narutobg.png" alt="Naruto">
+            <span>Naruto</span>
+          </button>
+          <button class="theme-card" data-theme="op">
+            <img src="assets/onepiecebg.png" alt="One Piece">
+            <span>One Piece</span>
+          </button>
+          <button class="theme-card" data-theme="slam">
+            <img src="assets/slamD.png" alt="Slam Dunk">
+            <span>Slam Dunk</span>
+          </button>
+          <button class="theme-card" data-theme="db">
+            <img src="assets/dragonballbg.png" alt="Dragon Ball">
+            <span>Dragon Ball</span>
+          </button>
+          <button class="theme-card" data-theme="bleach">
+            <img src="assets/bleachbg.png" alt="Bleach">
+            <span>Bleach</span>
+          </button>
+        </div>
+        <button class="btn-back" data-action="go-home">&larr; Back</button>
+      </div>
+    </section>
+
+    <!-- Size selection -->
+    <section id="screen-size" class="screen">
+      <div class="screen-bg" id="size-bg"></div>
+      <div class="screen-content size-layout">
+        <button class="btn-back size-back" data-action="go-themes">&larr; Back to Themes</button>
+        <div class="size-panel">
+          <div class="size-buttons">
+            <h2 id="size-theme-title">Select Grid Size</h2>
+            <button class="size-btn tile-btn" data-size="4">
+              <strong>4 &times; 4</strong>
+              <span>60s &middot; 20 flips &middot; +5 pts</span>
+            </button>
+            <button class="size-btn tile-btn" data-size="6">
+              <strong>6 &times; 6</strong>
+              <span>90s &middot; 40 flips &middot; +10 pts</span>
+            </button>
+            <button class="size-btn tile-btn" data-size="8">
+              <strong>8 &times; 8</strong>
+              <span>120s &middot; 50 flips &middot; +15 pts</span>
+            </button>
+          </div>
+          <div class="gif-frame" id="gif-frame">
+            <img id="gif-preview" src="" alt="Grid size preview">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to play -->
+    <section id="screen-howto" class="screen">
+      <div class="screen-bg" style="background-image: url('assets/homep1.PNG')"></div>
+      <div class="screen-content howto-content">
+        <h2>How to Play</h2>
+        <ul>
+          <li>Flip two cards at a time to find matching pairs.</li>
+          <li>Earn points for every successful match before time runs out.</li>
+          <li>Mismatched cards flip back — each miss counts toward your flip limit.</li>
+          <li>Match all pairs to win. Run out of time or flips and you lose.</li>
+          <li>Choose from 5 anime themes and 3 difficulty grid sizes.</li>
+        </ul>
+        <button class="btn-back" data-action="go-home">&larr; Back</button>
+      </div>
+    </section>
+
+    <!-- Game -->
+    <section id="screen-game" class="screen">
+      <div class="screen-bg" id="game-bg"></div>
+      <div class="game-ui">
+        <div class="game-top">
+          <button class="icon-btn" data-action="pause" title="Menu">&#9776;</button>
+          <div class="hud">
+            <div class="hud-panel">Score: <span id="hud-score">0</span></div>
+            <div class="hud-panel">Flips: <span id="hud-flips">0/20</span></div>
+            <div class="hud-panel">Time: <span id="hud-time">60s</span></div>
+          </div>
+          <button class="icon-btn" id="mute-btn" data-action="toggle-mute" title="Sound">&#128266;</button>
+        </div>
+        <div id="board" class="board"></div>
+      </div>
+
+      <!-- Pause overlay -->
+      <div id="overlay-pause" class="overlay hidden">
+        <div class="overlay-box">
+          <h3>Game Paused</h3>
+          <button class="btn-primary" data-action="resume">Resume</button>
+          <button class="btn-secondary" data-action="restart">Restart</button>
+          <button class="btn-secondary" data-action="go-themes">Change Theme</button>
+        </div>
+      </div>
+
+      <!-- Win overlay -->
+      <div id="overlay-win" class="overlay hidden">
+        <div class="overlay-box win">
+          <h3>You Win!</h3>
+          <p id="win-stats"></p>
+          <button class="btn-primary" data-action="restart">Play Again</button>
+          <button class="btn-secondary" data-action="go-themes">Change Theme</button>
+        </div>
+      </div>
+
+      <!-- Lose overlay -->
+      <div id="overlay-lose" class="overlay hidden">
+        <div class="overlay-box lose">
+          <h3 id="lose-title">Game Over</h3>
+          <p id="lose-stats"></p>
+          <button class="btn-primary" data-action="restart">Try Again</button>
+          <button class="btn-secondary" data-action="go-themes">Change Theme</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/game.js"></script>
+</body>
+</html>

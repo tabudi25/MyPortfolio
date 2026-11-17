@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fly Ninja Tours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Staatliches&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css?v=7">
+</head>
+<body>
+  <!-- Login Screen -->
+  <section id="screen-login" class="screen active">
+    <div class="login-page" style="background-image: url('assets/trav.png')">
+      <div class="login-scrim"></div>
+      <div class="login-content">
+        <!-- Login stays LEFT -->
+        <form class="login-box" id="loginForm" autocomplete="on">
+          <h2>Welcome</h2>
+          <p class="login-box-sub">Sign in to book your flight</p>
+
+          <label class="login-label" for="loginUser">Username</label>
+          <input type="text" id="loginUser" class="login-control" placeholder="Username" autocomplete="username">
+
+          <label class="login-label" for="loginPass">Password</label>
+          <input type="password" id="loginPass" class="login-control" placeholder="Password" autocomplete="current-password">
+
+          <button type="submit" id="loginBtn" class="btn-login">Login</button>
+          <p id="loginError" class="login-error" hidden></p>
+        </form>
+
+        <!-- Brand stays RIGHT / lower -->
+        <div class="login-brand">
+          <p class="login-kicker">Travel</p>
+          <h1>Fly Ninja Tours</h1>
+          <p class="login-explore">Explore the World</p>
+          <p class="login-tagline">Dream. Save Money. Explore and Discover!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Screen -->
+  <section id="screen-booking" class="screen">
+    <div class="booking-atmosphere"></div>
+
+    <header class="booking-header">
+      <div class="header-brand">
+        <span class="header-mark" aria-hidden="true"></span>
+        <div>
+          <h1>Fly Ninja Tours</h1>
+          <p>Flight booking desk</p>
+        </div>
+      </div>
+      <button type="button" id="logoutBtn" class="btn-logout">Sign Out</button>
+    </header>
+
+    <div class="booking-hero" style="background-image: url('assets/trav.png')">
+      <div class="booking-hero-copy">
+        <p class="hero-kicker">Today’s desk</p>
+        <h2>Plan the route. Book the flight.</h2>
+        <p>Fill passenger details, choose a route, and keep every booking in one table.</p>
+      </div>
+    </div>
+
+    <div class="booking-layout">
+      <form id="bookingForm" class="booking-form" autocomplete="off">
+        <div class="section-head">
+          <h2>New Booking</h2>
+          <p>All fields are required before saving.</p>
+        </div>
+
+        <fieldset class="form-section">
+          <legend>Passenger</legend>
+          <div class="form-grid">
+            <label class="field">
+              <span>Last Name</span>
+              <input type="text" id="lastName" placeholder="e.g. Orao" required>
+            </label>
+            <label class="field">
+              <span>First Name</span>
+              <input type="text" id="firstName" placeholder="e.g. Jun" required>
+            </label>
+            <label class="field">
+              <span>Middle Name</span>
+              <input type="text" id="middleName" placeholder="e.g. Alexes" required>
+            </label>
+            <label class="field">
+              <span>Email</span>
+              <input type="email" id="email" placeholder="name@email.com" required>
+            </label>
+            <label class="field">
+              <span>Phone Number</span>
+              <input type="text" id="phone" maxlength="11" inputmode="numeric" placeholder="11 digits" required>
+            </label>
+            <label class="field">
+              <span>Nationality</span>
+              <input type="text" id="nationality" placeholder="e.g. Filipino" required>
+            </label>
+            <label class="field field-span-2">
+              <span>Address</span>
+              <input type="text" id="address" placeholder="City, Province" required>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>Route &amp; Schedule</legend>
+          <div class="form-grid">
+            <label class="field">
+              <span>From</span>
+              <input type="text" id="from" placeholder="Origin city" required>
+            </label>
+            <label class="field">
+              <span>To</span>
+              <input type="text" id="to" placeholder="Destination city" required>
+            </label>
+            <label class="field">
+              <span>Price / Route</span>
+              <select id="price" required>
+                <option value="">Select route price</option>
+                <option value="12000">Cebu–Cdo · ₱12,000</option>
+                <option value="26000">Camiguin–Manila · ₱26,000</option>
+                <option value="13000">Agora–Ketkai · ₱13,000</option>
+                <option value="15000">Davao–Manila · ₱15,000</option>
+                <option value="80000">Marawi–Camiguin · ₱80,000</option>
+                <option value="100000">Taguig–Camiguin · ₱100,000</option>
+                <option value="850000">Siquijor–Cebu · ₱850,000</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Departure</span>
+              <input type="date" id="departure" required>
+            </label>
+            <label class="field">
+              <span>Arrival</span>
+              <input type="date" id="arrival" required>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="button" id="updateBtn" class="btn btn-update" hidden>Update Booking</button>
+          <button type="submit" id="bookBtn" class="btn btn-book">Book Flight</button>
+          <button type="button" id="deleteBtn" class="btn btn-delete" hidden>Delete</button>
+          <button type="button" id="clearBtn" class="btn btn-clear">Clear Form</button>
+        </div>
+        <p id="formMessage" class="form-message" hidden></p>
+      </form>
+
+      <div class="bookings-panel">
+        <div class="bookings-head">
+          <div>
+            <h2>Booked Flights</h2>
+            <p>Click a row to edit or delete.</p>
+          </div>
+          <span id="bookingCount" class="booking-count">0 bookings</span>
+        </div>
+        <div class="table-wrap">
+          <table id="bookingsTable">
+            <thead>
+              <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Nationality</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Price</th>
+                <th>Departure</th>
+                <th>Arrival</th>
+              </tr>
+            </thead>
+            <tbody id="bookingsBody"></tbody>
+          </table>
+          <div id="emptyState" class="empty-state">
+            <p class="empty-title">No flights booked yet</p>
+            <p>Complete the form above to save your first booking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/app.js?v=7"></script>
+</body>
+</html>
