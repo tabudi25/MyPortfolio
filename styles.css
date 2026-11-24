@@ -21,6 +21,14 @@
 
 html {
   scroll-behavior: smooth;
+  /* Hide the page's vertical scrollbar; scrolling still works */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 body {

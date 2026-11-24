@@ -157,6 +157,16 @@
     } catch (e) { /* audio is optional */ }
   }
 
+  // Once the visitor scrolls on their own, stop pinning the page to Home
+  var userScrolled = false;
+  ['wheel', 'touchmove', 'keydown'].forEach(function (type) {
+    window.addEventListener(type, function () { if (!document.body.contains(intro)) userScrolled = true; }, { passive: true });
+  });
+
+  function toTop() {
+    if (!userScrolled && window.scrollY !== 0) window.scrollTo(0, 0);
+  }
+
   function finish() {
     root.classList.remove('intro-on', 'intro-leaving');
     if (intro.parentNode) intro.parentNode.removeChild(intro);
@@ -165,7 +175,11 @@
     if (window.location.hash) {
       history.replaceState(null, '', window.location.pathname + window.location.search);
     }
-    window.scrollTo(0, 0);
+    toTop();
+    // Late loads (fonts, images, video) can shift or restore scroll; pin to Home a bit longer
+    requestAnimationFrame(toTop);
+    setTimeout(toTop, 120);
+    if (document.readyState !== 'complete') window.addEventListener('load', toTop, { once: true });
     document.dispatchEvent(new CustomEvent('jao:intro-done'));
   }
 

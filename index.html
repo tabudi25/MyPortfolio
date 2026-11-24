@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="projects-section.css">
   <link rel="stylesheet" href="certificates-section.css">
   <link rel="stylesheet" href="modern.css">
-  <link rel="stylesheet" href="intro.css">
+  <link rel="stylesheet" href="intro.css?v=3">
   <script>
     (function () {
       var d = document.documentElement;
@@ -26,6 +26,8 @@
         if (!/[?&]intro/.test(location.search) && sessionStorage.getItem("jao-intro-seen")) return;
       } catch (e) { }
       d.classList.add("intro-on");
+      // Intro always lands on Home: no old scroll spot, no #section jump
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
     })();
   </script>
 </head>
@@ -1109,7 +1111,7 @@
     </div>
   </footer>
 
-  <script src="intro.js"></script>
+  <script src="intro.js?v=3"></script>
   <script src="script.js"></script>
   <script src="projects-data.js"></script>
   <script src="projects-section.js"></script>
