@@ -14,6 +14,10 @@
     return;
   }
 
+  // Stop the browser from restoring an old scroll spot (or jumping to a #section) under the intro
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+
   var SEEN_KEY = 'jao-intro-seen';
   var MIN_LOAD_MS = 1800;   // keep the loader up at least this long
   var MAX_LOAD_MS = 4000;   // never wait longer than this for window.load
@@ -157,12 +161,11 @@
     root.classList.remove('intro-on', 'intro-leaving');
     if (intro.parentNode) intro.parentNode.removeChild(intro);
     try { sessionStorage.setItem(SEEN_KEY, '1'); } catch (e) { /* storage unavailable */ }
-    // Honor links like index.html#certificates once scrolling is back
-    var hash = window.location.hash;
-    if (hash && hash.length > 1) {
-      var target = document.getElementById(decodeURIComponent(hash.slice(1)));
-      if (target) target.scrollIntoView();
+    // The intro always lands on Home: drop any #section from the URL and start at the top
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
     }
+    window.scrollTo(0, 0);
     document.dispatchEvent(new CustomEvent('jao:intro-done'));
   }
 
