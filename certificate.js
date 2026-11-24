@@ -148,6 +148,36 @@ const certificatesData = {
     description: 'Certificate of Attendance for active participation in the IT Assembly Seminar entitled "FIT TO CODE: The Role of Physical Health in IT Productivity and Career Longevity" held at Demiren Hotel, Cagayan de Oro City.',
     image: 'images/certificates/fit-to-code.jpg',
     verify: ''
+  },
+  'system-testing-evaluation': {
+    title: 'System Testing and Evaluation Seminar-Workshop',
+    type: 'Attendance',
+    org: 'Southern Philippines College — College of Computer Studies',
+    year: 'September 24, 2026',
+    venue: 'Computer Laboratory 1, Southern de Oro Philippines College',
+    description: 'Certificate of Participation for active participation and valuable completion of the "SYSTEM TESTING AND EVALUATION SEMINAR-WORKSHOP" held at the Computer Laboratory 1 of Southern de Oro Philippines College.',
+    image: 'images/certificates/system-testing-evaluation.jpg',
+    verify: ''
+  },
+  'it-career-age-of-ai': {
+    title: 'Building an IT Career in the Age of Artificial Intelligence',
+    type: 'Attendance',
+    org: 'Southern de Oro Philippines College — College of Computer Studies',
+    year: 'August 20, 2026',
+    venue: 'Iñigo Private Resort, Cagayan de Oro City',
+    description: 'Certificate of Attendance for active participation in the IT Assembly Seminar entitled "BUILDING AN IT CAREER IN THE AGE OF ARTIFICIAL INTELLIGENCE" held at Iñigo Private Resort, Cagayan de Oro City.',
+    image: 'images/certificates/it-career-age-of-ai.jpg',
+    verify: ''
+  },
+  'cybersecurity-data-privacy': {
+    title: 'Cybersecurity Awareness, Data Privacy, and Digital Responsibility',
+    type: 'Attendance',
+    org: 'Southern de Oro Philippines College — College of Computer Studies',
+    year: 'August 20, 2026',
+    venue: 'Iñigo Private Resort, Cagayan de Oro City',
+    description: 'Certificate of Attendance for active participation in the IT Assembly Seminar entitled "FUTURE: Cybersecurity Awareness, Data Privacy, and Digital Responsibility for Future IT Professionals" held at Iñigo Private Resort, Cagayan de Oro City.',
+    image: 'images/certificates/cybersecurity-data-privacy-responsibility.jpg',
+    verify: ''
   }
 };
 

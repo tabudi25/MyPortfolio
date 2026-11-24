@@ -1,0 +1,368 @@
+/* =========================================================
+   Intro screen: loading ring -> tap the logo -> burst + curtain reveal.
+   Shown once per browser tab session (see the inline script in <head>).
+   Add ?intro to the URL to see it again.
+   ========================================================= */
+
+.jao-intro { display: none; }
+
+html.intro-on,
+html.intro-on body { overflow: hidden; }
+
+/* Hold the hero hidden until the intro leaves, so its reveal plays after */
+html.intro-on:not(.intro-leaving) .md-hero .md-reveal {
+  opacity: 0 !important;
+  transform: translateY(18px) !important;
+}
+
+html.intro-on .jao-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  color: #f3f5fa;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---------- Background: two curtains that split on enter ---------- */
+
+.ji-curtain {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50.5%;
+  background: #07090f;
+  overflow: hidden;
+  transition: transform 0.9s cubic-bezier(0.77, 0, 0.18, 1);
+  will-change: transform;
+}
+
+.ji-curtain-top { top: 0; }
+.ji-curtain-bottom { bottom: 0; }
+
+/* Soft glow and faint grid sit on the curtains, so they leave with them */
+.ji-curtain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.ji-curtain-top::before {
+  background-position: center bottom;
+  -webkit-mask-image: radial-gradient(ellipse 70% 100% at center bottom, #000 15%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 100% at center bottom, #000 15%, transparent 75%);
+}
+
+.ji-curtain-bottom::before {
+  background-position: center top;
+  -webkit-mask-image: radial-gradient(ellipse 70% 100% at center top, #000 15%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 100% at center top, #000 15%, transparent 75%);
+}
+
+.ji-curtain::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 720px;
+  height: 720px;
+  margin-left: -360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 45, 106, 0.22), rgba(199, 21, 133, 0.08) 45%, transparent 70%);
+  animation: ji-breathe 4s ease-in-out infinite;
+}
+
+.ji-curtain-top::after { bottom: -360px; }
+.ji-curtain-bottom::after { top: -360px; }
+
+/* Thin seam of light where the curtains meet */
+.ji-seam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  background: linear-gradient(90deg, transparent, #ff2d6a 30%, #ff7a59 50%, #c71585 70%, transparent);
+  box-shadow: 0 0 24px rgba(255, 45, 106, 0.8);
+  transform: scaleX(0);
+  opacity: 0;
+  z-index: 1;
+}
+
+/* ---------- Center stage ---------- */
+
+.ji-stage {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  padding: 24px;
+  text-align: center;
+  transition: opacity 0.5s ease, transform 0.9s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.ji-logo {
+  position: relative;
+  width: 172px;
+  height: 172px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: default;
+  animation: ji-pop-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ji-logo:focus { outline: none; }
+.ji-logo:focus-visible { box-shadow: 0 0 0 3px #07090f, 0 0 0 5px #ff7a59; }
+
+.ji-logo img {
+  position: absolute;
+  inset: 18px;
+  width: calc(100% - 36px);
+  height: calc(100% - 36px);
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(0.85) brightness(0.7);
+  transition: filter 0.8s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Progress ring */
+.ji-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.ji-ring-track { fill: none; stroke: rgba(255, 255, 255, 0.08); stroke-width: 3; }
+
+.ji-ring-bar {
+  fill: none;
+  stroke: url(#jiGrad);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 339.3;
+  stroke-dashoffset: 339.3;
+  filter: drop-shadow(0 0 6px rgba(255, 45, 106, 0.7));
+}
+
+/* Pulses that ripple out once the logo is ready */
+.ji-pulse {
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 45, 106, 0.55);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Loading text and hint share one spot */
+.ji-status {
+  position: relative;
+  height: 1.6em;
+  min-width: 320px;
+  font-size: 0.82rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #9aa3b5;
+}
+
+.ji-status > span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  white-space: nowrap;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.ji-count { font-variant-numeric: tabular-nums; }
+
+.ji-hint {
+  opacity: 0;
+  transform: translateY(8px);
+  color: #f3f5fa;
+}
+
+.ji-hint b {
+  font-weight: 600;
+  background: linear-gradient(120deg, #ff2d6a, #ff7a59);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ji-name {
+  margin: 0;
+  font-size: clamp(1.5rem, 4.6vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.1;
+}
+
+.ji-word { display: inline-block; white-space: nowrap; }
+
+.ji-name .ji-word span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.6em);
+  animation: ji-letter 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.ji-tag {
+  margin: -14px 0 0;
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  color: #ff7a59;
+  opacity: 0;
+  animation: ji-fade 0.8s ease 1.2s forwards;
+}
+
+.ji-skip {
+  position: absolute;
+  right: 22px;
+  bottom: 20px;
+  z-index: 3;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #9aa3b5;
+  font: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  opacity: 0;
+  animation: ji-fade 0.6s ease 1.4s forwards;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.ji-skip:hover,
+.ji-skip:focus-visible { color: #f3f5fa; border-color: rgba(255, 255, 255, 0.35); outline: none; }
+
+/* Burst particles + shockwave + flash */
+.ji-burst {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.ji-spark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--s);
+  height: var(--s);
+  margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2);
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 10px var(--c);
+  animation: ji-spark 0.9s cubic-bezier(0.15, 0.7, 0.3, 1) forwards;
+}
+
+.ji-wave {
+  position: absolute;
+  left: -90px;
+  top: -90px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid #ff7a59;
+  animation: ji-wave 0.8s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+
+.ji-flash {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), rgba(255, 122, 89, 0.35) 35%, transparent 65%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---------- States ---------- */
+
+/* Ready: logo wakes up and waits for a tap */
+.jao-intro.is-ready .ji-logo { cursor: pointer; }
+.jao-intro.is-ready .ji-logo img { filter: none; }
+.jao-intro.is-ready .ji-logo:hover img { transform: scale(1.06); }
+.jao-intro.is-ready .ji-logo:active img { transform: scale(0.95); }
+.jao-intro.is-ready .ji-ring-bar { animation: ji-glow 1.8s ease-in-out infinite; }
+.jao-intro.is-ready .ji-pulse { animation: ji-pulse 2.2s cubic-bezier(0.2, 0.6, 0.4, 1) infinite; }
+.jao-intro.is-ready .ji-pulse + .ji-pulse { animation-delay: 1.1s; }
+.jao-intro.is-ready .ji-count { opacity: 0; transform: translateY(-8px); }
+.jao-intro.is-ready .ji-hint { opacity: 1; transform: none; animation: ji-nudge 2.2s ease-in-out 0.6s infinite; }
+
+/* Entering: logo punches, sparks fly */
+.jao-intro.is-entering .ji-logo { cursor: default; animation: ji-punch 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.jao-intro.is-entering .ji-pulse { animation: none; opacity: 0; }
+.jao-intro.is-entering .ji-status,
+.jao-intro.is-entering .ji-skip { opacity: 0 !important; transition: opacity 0.25s ease; }
+.jao-intro.is-entering .ji-flash { animation: ji-flash 0.7s ease-out forwards; }
+
+/* Leaving: curtains split, stage zooms into the viewer */
+.jao-intro.is-leaving .ji-seam { animation: ji-seam 0.5s ease-out forwards; }
+.jao-intro.is-leaving .ji-curtain-top { transform: translateY(-101%); transition-delay: 0.18s; }
+.jao-intro.is-leaving .ji-curtain-bottom { transform: translateY(101%); transition-delay: 0.18s; }
+.jao-intro.is-leaving .ji-stage { opacity: 0; transform: scale(2.6); }
+
+/* ---------- Keyframes ---------- */
+
+@keyframes ji-breathe { 0%, 100% { opacity: 0.75; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+@keyframes ji-pop-in { from { opacity: 0; transform: scale(0.6) rotate(-12deg); } to { opacity: 1; transform: none; } }
+@keyframes ji-letter { to { opacity: 1; transform: none; } }
+@keyframes ji-fade { to { opacity: 1; } }
+@keyframes ji-glow { 0%, 100% { filter: drop-shadow(0 0 6px rgba(255, 45, 106, 0.7)); } 50% { filter: drop-shadow(0 0 16px rgba(255, 122, 89, 1)); } }
+@keyframes ji-pulse { 0% { opacity: 0.8; transform: scale(1); } 100% { opacity: 0; transform: scale(1.75); } }
+@keyframes ji-nudge { 0%, 100% { transform: none; } 50% { transform: translateY(-3px); } }
+@keyframes ji-punch { 0% { transform: scale(1); } 40% { transform: scale(0.86); } 100% { transform: scale(1.14); } }
+@keyframes ji-spark {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--x), var(--y)) scale(0.2); opacity: 0; }
+}
+@keyframes ji-wave { 0% { transform: scale(0.6); opacity: 1; } 100% { transform: scale(4.5); opacity: 0; border-width: 1px; } }
+@keyframes ji-flash { 0% { opacity: 0; } 25% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes ji-seam { 0% { opacity: 1; transform: scaleX(0); } 60% { opacity: 1; transform: scaleX(1); } 100% { opacity: 0; transform: scaleX(1); } }
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 480px) {
+  .ji-logo { width: 148px; height: 148px; }
+  .ji-status { min-width: 0; width: 100%; font-size: 0.72rem; letter-spacing: 0.2em; }
+  .ji-skip { right: 50%; transform: translateX(50%); bottom: 18px; }
+}
+
+/* ---------- Reduced motion: no zoom, sparks or loops ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .ji-curtain::after,
+  .ji-name .ji-word span,
+  .ji-tag,
+  .ji-skip,
+  .ji-logo { animation: none !important; opacity: 1; transform: none; }
+  .jao-intro.is-ready .ji-pulse,
+  .jao-intro.is-ready .ji-ring-bar,
+  .jao-intro.is-ready .ji-hint { animation: none !important; }
+  .ji-curtain { transition: opacity 0.4s ease; }
+  .jao-intro.is-leaving .ji-curtain-top,
+  .jao-intro.is-leaving .ji-curtain-bottom { transform: none; opacity: 0; }
+  .jao-intro.is-leaving .ji-stage { transform: none; }
+}

@@ -16,10 +16,59 @@
   <link rel="stylesheet" href="projects-section.css">
   <link rel="stylesheet" href="certificates-section.css">
   <link rel="stylesheet" href="modern.css">
-  <script>document.documentElement.classList.add("md-js");</script>
+  <link rel="stylesheet" href="intro.css">
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add("md-js");
+      // Intro plays once per tab session; add ?intro to the URL to replay it
+      try {
+        if (!/[?&]intro/.test(location.search) && sessionStorage.getItem("jao-intro-seen")) return;
+      } catch (e) { }
+      d.classList.add("intro-on");
+    })();
+  </script>
 </head>
 
 <body>
+
+  <!-- Intro screen (intro.js): loading ring, then tap the logo to enter -->
+  <div class="jao-intro" id="jaoIntro" role="dialog" aria-modal="true" aria-label="Welcome">
+    <div class="ji-curtain ji-curtain-top" aria-hidden="true"></div>
+    <div class="ji-curtain ji-curtain-bottom" aria-hidden="true"></div>
+    <div class="ji-seam" aria-hidden="true"></div>
+
+    <div class="ji-stage">
+      <button type="button" class="ji-logo" aria-label="Enter portfolio" aria-disabled="true">
+        <svg class="ji-ring" viewBox="0 0 120 120" aria-hidden="true">
+          <defs>
+            <linearGradient id="jiGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ff2d6a" />
+              <stop offset="55%" stop-color="#c71585" />
+              <stop offset="100%" stop-color="#ff7a59" />
+            </linearGradient>
+          </defs>
+          <circle class="ji-ring-track" cx="60" cy="60" r="54" />
+          <circle class="ji-ring-bar" cx="60" cy="60" r="54" />
+        </svg>
+        <span class="ji-pulse" aria-hidden="true"></span>
+        <span class="ji-pulse" aria-hidden="true"></span>
+        <img src="images/logo-jao.png" alt="" width="136" height="136" draggable="false">
+      </button>
+
+      <h2 class="ji-name">JUN ALEXES ORAO</h2>
+      <p class="ji-tag">BSIT · Web Developer · Creative</p>
+
+      <div class="ji-status" aria-live="polite">
+        <span class="ji-count">Loading 0%</span>
+        <span class="ji-hint"><span class="ji-hint-verb">Click</span> the <b>logo</b> to enter</span>
+      </div>
+    </div>
+
+    <div class="ji-burst" aria-hidden="true"></div>
+    <div class="ji-flash" aria-hidden="true"></div>
+    <button type="button" class="ji-skip">Skip intro</button>
+  </div>
 
   <!-- Navigation -->
   <nav class="md-nav" aria-label="Main">
@@ -538,6 +587,75 @@
             </div>
           </div>
         </a>
+        <a class="ct-card" href="certificate.html?id=system-testing-evaluation" data-cat="attendance">
+          <div class="ct-thumb">
+            <img src="images/certificates/system-testing-evaluation.jpg" alt="System Testing and Evaluation certificate" loading="lazy"
+              decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-attendance">Attendance</span>
+            <h3 class="ct-title">System Testing &amp; Evaluation</h3>
+            <p class="ct-org">Seminar-Workshop</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>Computer Laboratory 1, SPC</span></p>
+            <div class="ct-foot">
+              <time>Sep 2026</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=it-career-age-of-ai" data-cat="attendance">
+          <div class="ct-thumb">
+            <img src="images/certificates/it-career-age-of-ai.jpg" alt="Building an IT Career in the Age of AI certificate" loading="lazy"
+              decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-attendance">Attendance</span>
+            <h3 class="ct-title">Building an IT Career in the Age of AI</h3>
+            <p class="ct-org">IT Assembly Seminar</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>I&ntilde;igo Private Resort, Cagayan de Oro City</span></p>
+            <div class="ct-foot">
+              <time>Aug 2026</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="ct-card" href="certificate.html?id=cybersecurity-data-privacy" data-cat="attendance">
+          <div class="ct-thumb">
+            <img src="images/certificates/cybersecurity-data-privacy-responsibility.jpg" alt="Cybersecurity Awareness, Data Privacy, and Digital Responsibility certificate" loading="lazy"
+              decoding="async">
+          </div>
+          <div class="ct-body">
+            <span class="ct-badge ct-badge-attendance">Attendance</span>
+            <h3 class="ct-title">Cybersecurity, Data Privacy &amp; Digital Responsibility</h3>
+            <p class="ct-org">IT Assembly Seminar</p>
+            <p class="ct-venue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg><span>I&ntilde;igo Private Resort, Cagayan de Oro City</span></p>
+            <div class="ct-foot">
+              <time>Aug 2026</time>
+              <span class="ct-view">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg></span>
+            </div>
+          </div>
+        </a>
         <a class="ct-card" href="certificate.html?id=code-your-finances" data-cat="attendance">
           <div class="ct-thumb">
             <img src="images/certificates/code-your-finances.jpg" alt="Code Your Finances certificate" loading="lazy"
@@ -991,6 +1109,7 @@
     </div>
   </footer>
 
+  <script src="intro.js"></script>
   <script src="script.js"></script>
   <script src="projects-data.js"></script>
   <script src="projects-section.js"></script>
